@@ -2,12 +2,12 @@ import warnings
 warnings.filterwarnings("ignore")
 
 from pytest import mark
-from app.agents.ocr_moonshot import OCRAgent as Agent
+from app.agents.qwenvl import QwenVLAgent as Agent
 
 
 @mark.asyncio
 @mark.agent
-@mark.ocr
+@mark.qwenvl
 class AgentTests:
     async def test_agent_behaviours(self):
         request = """app/data/business/invoice.jpeg"""
