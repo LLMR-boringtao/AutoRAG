@@ -19,8 +19,8 @@ class LlamaParseAgent:
             language="ch_sim",
             use_vendor_multimodal_model=True,
             vendor_multimodal_model_name="openai-gpt-4o-mini",
-            vendor_multimodal_api_key=os.getenv("OPENAI_API_KEY"),
-            parsing_instruction = "读取文件的内容。"
+            # vendor_multimodal_api_key=os.getenv("OPENAI_API_KEY"),
+            parsing_instruction = "读取文件中表格的结构与内容，忽略表格以外的内容。"
         )
 
     async def actor(self):
