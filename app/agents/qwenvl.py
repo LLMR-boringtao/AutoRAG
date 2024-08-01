@@ -9,7 +9,7 @@ torch.manual_seed(1234)
 class QwenVLAgent:
     def __init__(self, request):
         self.request = request
-        self.model_dir = "/root/autodl-tmp/Models/Qwen-VL"
+        self.model_dir = "models/Qwen-VL"
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_dir, trust_remote_code=True)
         self.model = AutoModelForCausalLM.from_pretrained(self.model_dir, device_map="auto", trust_remote_code=True).eval()
         self.model.generation_config = GenerationConfig.from_pretrained(self.model_dir, trust_remote_code=True)
