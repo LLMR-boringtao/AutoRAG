@@ -1,7 +1,8 @@
 accelerate
 autogen
 dashscope
+llama-parse
 openai
 python-dotenv
-llama-parse
 pytest-asyncio
+streamlit

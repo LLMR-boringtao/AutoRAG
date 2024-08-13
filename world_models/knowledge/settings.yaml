@@ -81,37 +81,37 @@ reporting:
   # connection_string: <azure_blob_storage_connection_string>
   # container_name: <azure_blob_storage_container_name>
 
-# entity_extraction:
-#   ## llm: override the global llm settings for this task
-#   ## parallelization: override the global parallelization settings for this task
-#   ## async_mode: override the global async_mode settings for this task
-#   prompt: "prompts/entity_extraction.txt"
-#   entity_types: [organization,person,geo,event]
-#   max_gleanings: 1
+entity_extraction:
+  ## llm: override the global llm settings for this task
+  ## parallelization: override the global parallelization settings for this task
+  ## async_mode: override the global async_mode settings for this task
+  prompt: "prompts/entity_extraction.txt"
+  entity_types: [organization,person,geo,event]
+  max_gleanings: 1
 
-# summarize_descriptions:
-#   ## llm: override the global llm settings for this task
-#   ## parallelization: override the global parallelization settings for this task
-#   ## async_mode: override the global async_mode settings for this task
-#   prompt: "prompts/summarize_descriptions.txt"
-#   max_length: 500
+summarize_descriptions:
+  ## llm: override the global llm settings for this task
+  ## parallelization: override the global parallelization settings for this task
+  ## async_mode: override the global async_mode settings for this task
+  prompt: "prompts/summarize_descriptions.txt"
+  max_length: 500
 
-# claim_extraction:
-#   ## llm: override the global llm settings for this task
-#   ## parallelization: override the global parallelization settings for this task
-#   ## async_mode: override the global async_mode settings for this task
-#   # enabled: true
-#   prompt: "prompts/claim_extraction.txt"
-#   description: "Any claims or facts that could be relevant to information discovery."
-#   max_gleanings: 1
+claim_extraction:
+  ## llm: override the global llm settings for this task
+  ## parallelization: override the global parallelization settings for this task
+  ## async_mode: override the global async_mode settings for this task
+  # enabled: true
+  prompt: "prompts/claim_extraction.txt"
+  description: "Any claims or facts that could be relevant to information discovery."
+  max_gleanings: 1
 
-# community_reports:
-#   ## llm: override the global llm settings for this task
-#   ## parallelization: override the global parallelization settings for this task
-#   ## async_mode: override the global async_mode settings for this task
-#   prompt: "prompts/community_report.txt"
-#   max_length: 2000
-#   max_input_length: 8000
+community_reports:
+  ## llm: override the global llm settings for this task
+  ## parallelization: override the global parallelization settings for this task
+  ## async_mode: override the global async_mode settings for this task
+  prompt: "prompts/community_report.txt"
+  max_length: 2000
+  max_input_length: 8000
 
 cluster_graph:
   max_cluster_size: 10
