@@ -3,6 +3,7 @@ autogen
 dashscope
 llama-parse
 openai
+plotly
 python-dotenv
 pytest-asyncio
 streamlit
