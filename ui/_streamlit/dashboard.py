@@ -18,7 +18,7 @@ alt.themes.enable("dark")
 
 #######################
 # Load data
-df_reshaped = pd.read_csv('frontend/streamlit/data/population.csv')
+df_reshaped = pd.read_csv('ui/streamlit/data/population.csv')
 
 
 #######################
