@@ -1,6 +1,6 @@
 from http import HTTPStatus
 import dashscope
-from app.plugins.ensure_local_file import ensure_local_file
+from app.plugins.EnsureLocalFile import EnsureLocalFile
 
 
 class QwenVLAgent:
@@ -8,7 +8,7 @@ class QwenVLAgent:
         self.request = request
         
     async def actor(self):
-        file_name = ensure_local_file(str(self.request))
+        file_name = EnsureLocalFile(str(self.request))
         messages = [
             {
                 "role": "user",

@@ -4,7 +4,7 @@ import tempfile
 from urllib.parse import urlparse
 
 
-def ensure_local_file(source):
+def EnsureLocalFile(source):
     """
     Ensures that the source is available as a local file. If the source is a URL,
     the content is downloaded and stored in a temporary file. If it's a local file,

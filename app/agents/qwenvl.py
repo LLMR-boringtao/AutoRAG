@@ -1,6 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
-from app.plugins.ensure_local_file import ensure_local_file
+from app.plugins.EnsureLocalFile import EnsureLocalFile
 
 import torch
 torch.manual_seed(1234)
@@ -15,7 +15,7 @@ class QwenVLAgent:
         self.model.generation_config = GenerationConfig.from_pretrained(self.model_dir, trust_remote_code=True)
 
     async def actor(self):
-        file_name = ensure_local_file(str(self.request))
+        file_name = EnsureLocalFile(str(self.request))
         query = self.tokenizer.from_list_format([
             {'image': file_name}, 
             {'text': '读取文件中表格的结构和文字'},

@@ -1,7 +1,7 @@
 from pathlib import Path
 from llama_parse import LlamaParse
 from llama_index.core import SimpleDirectoryReader
-from app.plugins.ensure_local_file import ensure_local_file
+from app.plugins.EnsureLocalFile import EnsureLocalFile
 
 import os
 from dotenv import load_dotenv
@@ -24,7 +24,7 @@ class LlamaParseAgent:
         )
 
     async def actor(self):
-        file_name = ensure_local_file(str(self.request))
+        file_name = EnsureLocalFile(str(self.request))
         file_content = self.parser.load_data(file_name)
         result = file_content[0].text
     
