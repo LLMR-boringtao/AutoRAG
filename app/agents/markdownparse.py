@@ -1,7 +1,7 @@
 
 from app.plugins.EnsureLocalFile import EnsureLocalFile
-from app.plugins.BaseElementNodeParser import BaseElementNodeParser
 from app.plugins.MarkdownElementNodeParser import MarkdownElementNodeParser
+from app.agents.llamaparse import LlamaParseAgent
 from llama_parse import LlamaParse
 
 import os
@@ -9,14 +9,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-class LlamaParseAgent:
+class MarkdownParseAgent:
     def __init__(self, request):
         self.request = request
-        self.parser = LlamaParse(
+        self.llamaparser = LlamaParse(
             result_type="markdown",
-            invalidate_cache=True,
-            do_not_cache=True,
-            num_workers=9,
             language="ch_sim",
             use_vendor_multimodal_model=True,
             vendor_multimodal_model_name="openai-gpt-4o-mini",
@@ -26,7 +23,9 @@ class LlamaParseAgent:
 
     async def actor(self):
         file_name = EnsureLocalFile(str(self.request))
-        file_content = self.parser.load_data(file_name)
-        result = file_content[0].text
-    
-        return result
+        documents = self.llamaparser.load_data(file_name)
+        node_parser = MarkdownElementNodeParser(llm=None, num_workers=8)
+        nodes = node_parser.get_nodes_from_documents(documents)
+        base_nodes, node_mappings = node_parser.get_base_nodes_and_mappings(nodes)
+
+        return node_mappings

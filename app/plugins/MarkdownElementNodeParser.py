@@ -1,7 +1,7 @@
 from io import StringIO
 from typing import Any, Callable, List, Optional
 
-from BaseElementNodeParser import BaseElementNodeParser
+from app.plugins.BaseElementNodeParser import BaseElementNodeParser
 
 import pandas as pd
 from llama_index.core.node_parser.relational.base_element import (

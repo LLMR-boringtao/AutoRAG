@@ -2,7 +2,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 from pytest import mark
-from app.agents.llamaparse import LlamaParseAgent as Agent
+from app.agents.markdownparse import MarkdownParseAgent as Agent
+import pprint
 import nest_asyncio
 nest_asyncio.apply()
 import time
@@ -10,7 +11,7 @@ import time
 
 @mark.asyncio
 @mark.agent
-@mark.llamaparse
+@mark.markdownparse
 class AgentTests:
     async def test_agent_behaviours(self):
         request = """app/data/business/invoice.pdf"""
@@ -18,6 +19,6 @@ class AgentTests:
         agent_instance = Agent(request)
         result = await agent_instance.actor()
         end = time.time()
-        print(result)
+        pprint.pprint(result)
         print(f"Time taken: {end - begin}")
         assert result is not None
