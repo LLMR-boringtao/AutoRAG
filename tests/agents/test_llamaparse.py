@@ -8,16 +8,15 @@ nest_asyncio.apply()
 import time
 
 
-@mark.asyncio
 @mark.agent
 @mark.llamaparse
 class AgentTests:
-    async def test_agent_behaviours(self):
+    def test_agent_behaviours(self):
         request = """app/data/business/invoice.pdf"""
         begin = time.time()
         agent_instance = Agent(request)
-        result = await agent_instance.actor()
+        response = agent_instance.actor()
         end = time.time()
-        print(result)
+        print(response)
         print(f"Time taken: {end - begin}")
-        assert result is not None
+        assert response is not None
