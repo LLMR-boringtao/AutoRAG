@@ -6,6 +6,9 @@ sys.path.append(os.getcwd())
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 from app.agents.llamaparse import LlamaParseAgent
 
+import nltk
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 st.set_page_config(page_title="File Chatbot")
 
