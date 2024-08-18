@@ -1,7 +1,10 @@
 import streamlit as st
-import tempfile, os
-from app.agents.llamaparse import LlamaParseAgent
 from llama_parse import LlamaParse
+import os, sys, tempfile, time
+
+sys.path.append(os.getcwd())
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+from app.agents.llamaparse import LlamaParseAgent
 
 
 st.set_page_config(page_title="File Chatbot")
@@ -14,6 +17,7 @@ def parser(file_path):
 
 def main():
     response = None
+    begin = time.time()
     with st.sidebar:
         st.title("File Chatbot")
         st.write("Upload a File file to chat with the bot")
@@ -35,8 +39,10 @@ def main():
 
     st.title("Chat with complex File")
     if response != None:
+        end = time.time()
+        st.write(f"Time taken: {end - begin}")
         st.write(response)
-
+        
 
 if __name__ == "__main__":
     main()
