@@ -2,6 +2,7 @@ accelerate
 autogen
 dashscope
 llama-parse
+nltk
 openai
 plotly
 python-dotenv
